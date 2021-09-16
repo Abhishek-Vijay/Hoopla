@@ -22,4 +22,4 @@ app.use(errorlogger)
 const appPort = 2000
 
 app.listen(appPort);
-// console.log("Service Started at port:", appPort);
+console.log("Service Started at port:", appPort);
