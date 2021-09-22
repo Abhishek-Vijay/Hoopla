@@ -1,0 +1,15 @@
+[{   
+    "sId" : "Asus@Seller",
+    "sCredentials" : {
+        "sEmail" : "sam@gmail.com",
+        "sPass" : "Sam@1234"
+    },
+    "sProfile" : {
+        "sName" : "Sam",
+        "gstNo" : "2018-06-08",
+        "sPhone" : 8265839081,
+        "sAddrs" : "Hootagali, Mysore",
+        "sCategory":"Electronics",
+        "sAccount":1234567
+    }
+}]
