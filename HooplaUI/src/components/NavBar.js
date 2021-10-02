@@ -47,7 +47,7 @@ const styles = theme => ({
   },
   icons:{      
     marginLeft:"0",
-    paddingLeft:"50%"
+    paddingLeft:"38%"
     
   },
   // ico:{      
@@ -128,7 +128,8 @@ home=()=>{
       //////redirection issue
       // return <Card products={this.state.products}/>
       sessionStorage.setItem("search_key", this.state.keyword)
-      window.location.href="http://localhost:3000/search"
+      // window.location.href="http://localhost:3000/search"
+      return <Redirect to="/search" />
     }
     if(this.state.home){
       return <Redirect to="/home" />
@@ -152,7 +153,7 @@ home=()=>{
             <div className={classes.search}>
             {/* <div className={classes.searchIcon}><SearchIcon /></div> */}
             <form onSubmit={(event)=>this.handleSubmit(event)} width="20px">
-            <InputBase style={{width:"150px"}} onChange={this.handleChange} placeholder="  Search…" value={this.state.searchValue}
+            <InputBase style={{width:"400px"}} onChange={this.handleChange} placeholder="  Search…" value={this.state.searchValue}
              className={classes.input} inputProps={{ 'aria-label': 'search' }}/>
             </form>  
           </div>
@@ -163,7 +164,7 @@ home=()=>{
              <div className={classes.icons}>
               <Box display="flex" flexDirection="row-reverse" p={1} m={1}>
                 <Box>
-                <Tooltip title="Cart" placement="bottom">
+                <Tooltip title="Logout" placement="bottom">
                       <Link className="ml-auto" to="/dashboard">
                       <IconButton style={{color:"#ffffff"}} onClick={()=>{sessionStorage.removeItem("user");sessionStorage.removeItem("email_c");sessionStorage.removeItem("email_s");sessionStorage.removeItem("user_s");}}><ExitToAppIcon/></IconButton>
                       </Link>
@@ -201,7 +202,7 @@ home=()=>{
                 <Typography className={classes.title} variant="body1" noWrap>Welcome {userName}!</Typography>
                 </Box>
             </Box>
-            </div>: <div style={{paddingLeft:"50%"}}>
+            </div>: <div style={{paddingLeft:"55%"}}>
             <Box  className="ml-auto" display="flex" flexDirection="row-reverse" p={1} m={1}>
               <Box>
               <Tooltip title="Register" placement="bottom">

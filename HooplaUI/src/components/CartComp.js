@@ -131,6 +131,8 @@ class CartComp extends Component{
         axios.put("http://localhost:2000/myCart/delete/"+ email,this.props.prod).then(response=>{
           this.setState({successMessage:"product deleted from cart",toCart:true})
           // toast(this.state.successMessage)
+          var in_cart=Number(sessionStorage.getItem("cart_items"))-1;
+          sessionStorage.setItem("cart_items",in_cart)
         }).catch(error=>{
           if(error.response){
               this.setState({errorMessage:error.response.data.message,successMessage:""})

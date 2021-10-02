@@ -3,6 +3,7 @@ import React from "react";
 // import { withStyles } from "@material-ui/core/styles";
 import Card from "./cards.js"
 import axios from "axios";
+import NavBar from "./NavBar.js";
 class Search extends React.Component{
     constructor(props){
       super(props);
@@ -31,12 +32,13 @@ render()
 {
     // const {classes}=this.props;
     // console.log("to card")
+    
     if(this.state.products.length>0){
         return(
-            <Card products={this.state.products}/>
+            <><NavBar /><Card products={this.state.products} /></>
         )
     }
-    return <div style={{color:"red",marginLeft:"10%"}}>Sorry!! no relevant products</div>
+    return <><NavBar /><div style={{ color: "red", marginLeft: "10%" }}>Sorry!! no relevant products</div></>
 }
 }
 export default (Search);

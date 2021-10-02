@@ -175,7 +175,7 @@ render(){
             }
             //if redirecting from cards
             if(this.state.items){
-                return <Cards products={this.state.items}/>
+                return <Cards products={this.state.items} category={this.props.items[0].pCategory}/>
             }
             if(this.props.prop){
                 return <OrderPlaced/>
@@ -185,9 +185,9 @@ render(){
            }
         if(this.state.flag){
             return (
-            <Box display="flex" flexDirection="row" m={15}  bgcolor="background.paper">
+            <Box display="flex" flexDirection="row" m={4}  bgcolor="background.paper" style={{ backgroundColor : "#d0d3d6" }}>
                 <Grid >
-                <img width="400px" src={require("../assets/img/"+element.image)} alt="Clothing Pic" />
+                <img width="600px" height="100%" src={require("../assets/img/"+element.image)} alt="Product Pic" />
                 </Grid>
                 <Box flexDirection="column" display="flex" style={{marginLeft:"25%"}}>
                     <Typography variant="h6" gutterBottom>{element.pCategory}</Typography>

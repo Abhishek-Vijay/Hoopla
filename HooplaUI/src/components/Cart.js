@@ -164,6 +164,11 @@ class Cart extends Component{
        return <Redirect to="/login"/>
      }
     }
+    componentDidUpdate(prevProps, prevState){
+      if(this.state.cartItems.length != prevState.cartItems.length){
+        sessionStorage.setItem("cart_items",this.state.cartItems.length)
+      }
+    }
   render(){
     const {classes}=this.props;
     const rows=this.state.cartItems;

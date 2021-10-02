@@ -111,15 +111,34 @@ class CardComp extends React.Component{
     })
     }	
     }
+
+    componentDidUpdate(prevProps){
+      // console.log(prevProps, this.props);
+      if(prevProps.category !== this.props.category){ 
+        axios.get(url+this.props.category ).then(response=>{
+          this.setState({errorMessage:"",filtered_products:response.data,redirect:false})
+        }).catch(error=>{
+          if(error.response){
+              this.setState({errorMessage:error.response.data.message,filtered_products:[]})
+          }
+          else{
+              this.setState({errorMessage:"Server Error",filtered_products:[]})
+          }
+      })
+      // console.log(this.state.filtered_products);
+      }
+      }
+
   render(){
     const {classes}=this.props;
     const rows=this.state.filtered_products
     // console.log(this.state.redirect)
+    console.log(this.props.category);
     if(this.state.redirect){
       return <DisplayProduct from="card" items={this.state.filtered_products} prop={this.state.prodKey}/>
     }
     return(
-      <div className="App">
+      <div className="App" style={{ backgroundColor : "#d0d3d6" }}>
         {rows.length>0? <Grid container className={classes.root} spacing={6}>
         <Grid item xs={12}>
           <Grid container justify="center" spacing={6}>
@@ -157,7 +176,7 @@ class CardComp extends React.Component{
           </Grid>
         </Grid>
         
-      </Grid> :null}
+      </Grid> :<h1>....Loading Data</h1>}
       </div>
     );
   }

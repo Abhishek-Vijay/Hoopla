@@ -16,7 +16,7 @@ const styler = theme => ({
     marginLeft: "auto",
     marginRight: "auto",
     display: "block",
-    marginBottom: "0%"
+    marginBottom: "0%",
   }, buttons: {
     // marginLeft:"10em"
     // paddingLeft : "20px"
@@ -42,7 +42,7 @@ class Home extends Component {
     super(props);
     this.state = {
       redirect: false,
-      category: ""
+      category: "Electronics"
     }
   }
   category = (x) => {
@@ -63,12 +63,12 @@ class Home extends Component {
       autoplay: true,
       lazyLoad: true,
       arrows: true,
-      autoplaySpeed: 1000,
+      autoplaySpeed: 2000,
       className: "slides"
     };
-    if (this.state.redirect) {
-      return <Card category={this.state.category} />
-    }
+    // if (this.state.redirect) {
+    //   return <Card category={this.state.category} />
+    // }
     return (
       <React.Fragment>
         <AppBar style={{ marginTop: "4.8%", minHeight: "45px" }}>
@@ -81,32 +81,38 @@ class Home extends Component {
           </Toolbar>
         </AppBar>
 
-        <Slider {...settings} className={classes.container}>
-          <div className={classes.curs}>
-            {/* <img className={classes.centerc} src={require("../assets/img/clothing.png")} alt="Clothing Pic" /> */}
-            <a onClick={() => { this.category("Clothing") }}>
-              <img className={classes.centerc} src={require("../assets/img/clothing.png")} alt="Clothing Pic" />
+        <Slider {...settings} className={classes.container} style={{height: "350px"}} >
+        <div className={classes.curs}>
+            <a onClick={() => { this.category("Electronics") }} >
+              <img className={classes.centerc} src={require("../assets/img/mobiles.png")} alt="Mobiles Pic" style={{height: "350px"}}/>
             </a>
-          </div>
-          <div className={classes.curs}>
-            <a onClick={() => { this.category("Furniture") }}>
-              <img className={classes.centerc} src={require("../assets/img/furnitures.png")} alt="Furniture Pic" />
-            </a>
-            {/* <img className={classes.centerc} src={require("../assets/img/furnitures.png")} alt="Furniture Pic" /> */}
+            {/* <img className={classes.centerc} src={require("../assets/img/mobiles.png")} alt="Mobiles Pic" /> */}
           </div>
           <div className={classes.curs}>
             <a onClick={() => { this.category("Shoes") }}>
-              <img className={classes.centerc} src={require("../assets/img/shoes.png")} alt="Shoes Pic" />
+              <img className={classes.centerc} src={require("../assets/img/shoes.png")} alt="Shoes Pic" style={{height: "350px"}}/>
             </a>
             {/* <img className={classes.centerc} src={require("../assets/img/shoes.png")} alt="Shoes Pic" /> */}
           </div>
           <div className={classes.curs}>
-            <a onClick={() => { this.category("Electronics") }} >
-              <img className={classes.centerc} src={require("../assets/img/mobiles.png")} alt="Mobiles Pic" />
+            <a onClick={() => { this.category("Furniture") }}>
+              <img className={classes.centerc} src={require("../assets/img/furnitures.png")} alt="Furniture Pic" style={{height: "350px"}}/>
             </a>
-            {/* <img className={classes.centerc} src={require("../assets/img/mobiles.png")} alt="Mobiles Pic" /> */}
+            {/* <img className={classes.centerc} src={require("../assets/img/furnitures.png")} alt="Furniture Pic" /> */}
+          </div>
+          <div className={classes.curs}>
+            {/* <img className={classes.centerc} src={require("../assets/img/clothing.png")} alt="Clothing Pic" /> */}
+            <a onClick={() => { this.category("Clothing") }}>
+              <img className={classes.centerc} src={require("../assets/img/clothing.png")} alt="Clothing Pic" style={{height: "350px"}}/>
+            </a>
           </div>
         </Slider>
+        <br/>
+        <br/>
+        {/* {console.log(this.state.category)} */}
+        {/* {(this.state.redirect) ? */}
+      <Card category={this.state.category} /> 
+      {/* : "No Product's to Show" } */}
       </React.Fragment>
       // </div>
     );
